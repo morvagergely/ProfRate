@@ -152,13 +152,13 @@ Az <b>adminisztrátor</b> (<b>admin</b>) tud törölni bármilyen kommentet, okt
       </li>
       <li>/departments: tanszékek megjelenítése
          <ul>
-           <li>/:id: az adott id-hez tartozó tanszék megjelenítése</li>
+           <li>/:id : az adott id-hez tartozó tanszék megjelenítése</li>
            <li>/:id/professors: az adott id-hez tartozó tanszék professzorainak megjelenítése</li>
          </ul>
       </li>
       <li>/professors: professzorok megjelenítése
          <ul>
-           <li>/:id: az adott id-hez tartozó professzorok megjelenítése</li>
+           <li>/:id : az adott id-hez tartozó professzorok megjelenítése</li>
            <li>/:id/courses: az adott id-hez tartozó professzor kurzusainak megjelenítése</li>
          </ul>
       </li>
