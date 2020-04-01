@@ -33,11 +33,7 @@ public class Course {
     @Column
     @NotNull
     private String name;
-
-    //@Column
-    //@NotNull
-    //private List<Float> ratings;
-    
+  
     @Column
     @NotNull
     private Float averageRating;

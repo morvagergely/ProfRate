@@ -50,6 +50,4 @@ public class UserController {
     public ResponseEntity login() {
         return ResponseEntity.ok(authenticatedUser.getUser());
     }
-
-    //todo: rate courses(??)
 }

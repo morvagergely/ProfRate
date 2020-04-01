@@ -52,13 +52,21 @@ public class Professor {
     @ManyToOne
     private Department department;
 
-    /*public Course getCourseById(Integer courseId) {
+    public Course getCourseById(Integer courseId) {
         for(Course course : courses) {
             if(course.getId().equals(courseId)) {
                 return course;
             }
         }
         return null;
-    }*/
-    
+    }
+ 
+    public Course findCourseById(Integer courseId) {
+        for(Course course : courses) {
+            if(course.getId().equals(courseId)) {
+                return course;
+            }
+        }
+        return null;
+    }   
 }

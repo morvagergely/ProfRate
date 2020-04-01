@@ -57,19 +57,12 @@ public class CourseController {
         if (!foundCourse.isPresent()) {
             ResponseEntity.notFound();
         }
-
         Course courseToUpdate = foundCourse.get();
         if (course.getName() != null) {
             courseToUpdate.setName(course.getName());
         }
-       // if (course.getRatings() != null) {
-       //     courseToUpdate.setRatings(course.getRatings());
-       // }
-       if (course.getAverageRating() != null) {
+        if (course.getAverageRating() != null) {
             courseToUpdate.setAverageRating(course.getAverageRating());
-        }
-       if (course.getProfessors() != null) {
-            courseToUpdate.setProfessors(course.getProfessors());
         }
 
         return ResponseEntity.ok(courseRepository.save(courseToUpdate));

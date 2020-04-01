@@ -47,29 +47,19 @@ public class DepartmentController {
 
         return ResponseEntity.ok().build();
     }
-
+    
     @PutMapping("/{id}")
-    public ResponseEntity<Department> put(@PathVariable Integer id, @RequestBody Department department) {
-        Optional<Department> foundDepartment = departmentRepository.findById(id);
-        if (!foundDepartment.isPresent()) {
-            ResponseEntity.notFound();
+    public ResponseEntity<Department> put(@RequestBody Department department, @PathVariable Integer id) {
+        Optional<Department> oDepartment = departmentRepository.findById(id);
+        if (oDepartment.isPresent()) {
+            department.setId(id);
+            return ResponseEntity.ok(departmentRepository.save(department));
+        } else {
+            return ResponseEntity.notFound().build();
         }
-
-        Department departmentToUpdate = foundDepartment.get();
-        if(department.getName() != null) {
-            departmentToUpdate.setName(department.getName());
-        }
-        if(department.getAverageRating() != null) {
-            departmentToUpdate.setAverageRating(department.getAverageRating());
-        }
-        if(department.getDoesContainKrisa() != null) {
-            departmentToUpdate.setDoesContainKrisa(department.getDoesContainKrisa());
-        }
-
-        return ResponseEntity.ok(departmentRepository.save(departmentToUpdate));
     }
-
-    /*@GetMapping("/{id}/professors")
+    
+    @GetMapping("/{id}/professors")
     public ResponseEntity<Iterable<Professor>> getProfessors(@PathVariable Integer id) {
         Optional<Department> oDepartment = departmentRepository.findById(id);
         if (oDepartment.isPresent()) {
@@ -77,5 +67,5 @@ public class DepartmentController {
         } else {
             return ResponseEntity.notFound().build();
         }
-    }*/
+    }
 }
