@@ -58,5 +58,44 @@ Az <b>adminisztrátor</b> (<b>admin</b>) tud törölni bármilyen kommentet, okt
   <li><b>adminisztrátor</b>: lehetősége van törölni bármilyen értékelést és kommentet</li>
 </ul>
 
+<H2>Tervezés</H2>
+
+<H3>Könyvtárstruktúra</H3>
+<H4>Backend</H4>
+<ul>
+  <li>controllers
+    <ul>
+      <li>CourseController.java</li>
+      <li>DepartmentController.java</li>
+      <li>ProfessorController.java</li>
+      <li>UserController.java</li>
+    </ul>
+  </li>
+  <li>entities
+    <ul>
+      <li>Course.java</li>
+      <li>Department.java</li>
+      <li>Professor.java</li>
+      <li>User.java</li>
+    </ul>
+  </li>
+  <li>repositories
+    <ul>
+      <li>CourseRepository.java</li>
+      <li>DepartmentRepository.java</li>
+      <li>ProfessorRepository.java</li>
+      <li>UserRepository.java</li>
+    </ul>
+  </li>
+  <li>security
+    <ul>
+        <li>AuthenticatedUser.java</li>
+        <li>CustomBasicAuthenticationEntryPoint.java</li>
+        <li>MyUserDetailsService.java</li>
+        <li>WebSecurityConfig.java</li>
+    </ul>
+  </li>
+  <li>ProfRate.java</li>
+</ul>
 
 
