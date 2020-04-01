@@ -141,4 +141,52 @@ Az <b>adminisztrátor</b> (<b>admin</b>) tud törölni bármilyen kommentet, okt
   <li>ProfRate.java</li>
 </ul>
 
+<H3>Végpontok</H3>
+<ul>
+  <li>GET/
+    <ul>
+      <li>/courses: kurzusok megjelenítése
+         <ul>
+           <li>/:id : az adott id-hez tartozó kurzus megjelenítése</li>
+         </ul>
+      </li>
+      <li>/departments: tanszékek megjelenítése
+         <ul>
+           <li>/:id: az adott id-hez tartozó tanszék megjelenítése</li>
+           <li>/:id/professors: az adott id-hez tartozó tanszék professzorainak megjelenítése</li>
+         </ul>
+      </li>
+      <li>/professors: professzorok megjelenítése
+         <ul>
+           <li>/:id: az adott id-hez tartozó professzorok megjelenítése</li>
+           <li>/:id/courses: az adott id-hez tartozó professzor kurzusainak megjelenítése</li>
+         </ul>
+      </li>
+      <li>/users: felhasználók megjelenítése
+      </li>
+    </ul>
+  </li>
+  <li>POST/
+    <ul>
+      <li>/course: kurzus hozzáadása</li>
+      <li>/department: tanszék hozzáadása</li>
+      <li>/professor: professzor hozzáadása</li>
+    </ul>
+  </li>
+  <li>PUT/
+    <ul>
+      <li>/courses/:id : az adott id-hez tartozó kurzus módosítása</li>
+      <li>/departments/:id : az dott id-hez tartozó tanszék módosítása</li>
+      <li>/professor/:id : az adott id-hez tartozó felhasználó módosítása</li>
+    </ul>
+  </li>
+  <li>DELETE/
+    <ul>
+      <li>/courses/:id : az adott id-hez tartozó kurzus törlése</li>
+      <li>/departments/:id : az dott id-hez tartozó tanszék törlése</li>
+      <li>/professor/:id : az adott id-hez tartozó felhasználó törlésea</li>
+    </ul>
+  </li>
+</ul>
+
 
