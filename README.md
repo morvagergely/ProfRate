@@ -60,6 +60,46 @@ Az <b>adminisztrátor</b> (<b>admin</b>) tud törölni bármilyen kommentet, okt
 
 <H2>Tervezés</H2>
 
+<H3>Entitások</H3>
+<ul>
+  <li>Course
+    <ul>
+      <li>id (Integer)</li>
+      <li>name (String)</li>
+      <li>averageRating (Float)</li>
+      <li>professors (List&lt;Professor&gt;)</li>
+    </ul>
+  </li>
+  <li>Department
+    <ul>
+        <li>id (Long)</li>
+        <li>name (String)</li>
+        <li>averageRating (Float)</li>
+        <li>professors (List&lt;Professor&gt;)</li>
+    </ul>
+  </li>
+  <li>Professor
+    <ul>
+        <li>id (Integer)</li>
+        <li>name (String)</li>
+        <li>score (Integer)</li>
+        <li>rateCount(Integer)</li>
+        <li>averageRating (Float)</li>
+        <li>recommendationCount (Integer)</li>
+        <li>courses (List&lt;Course&gt;)</li>
+        <li>department (Department)</li>
+    </ul>
+  </li>
+  <li>User
+    <ul>
+      <li>id (Long)</li>
+      <li>neptunCode (String)</li>
+      <li>password (String)</li>
+      <li>type (Enum)</li>
+    </ul>
+  </li>
+</ul>
+
 <H3>Könyvtárstruktúra</H3>
 <H4>Backend</H4>
 <ul>
