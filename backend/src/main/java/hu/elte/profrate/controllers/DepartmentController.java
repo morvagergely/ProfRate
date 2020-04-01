@@ -69,7 +69,7 @@ public class DepartmentController {
         return ResponseEntity.ok(departmentRepository.save(departmentToUpdate));
     }
 
-    @GetMapping("/{id}/professors")
+    /*@GetMapping("/{id}/professors")
     public ResponseEntity<Iterable<Professor>> getProfessors(@PathVariable Integer id) {
         Optional<Department> oDepartment = departmentRepository.findById(id);
         if (oDepartment.isPresent()) {
@@ -77,5 +77,5 @@ public class DepartmentController {
         } else {
             return ResponseEntity.notFound().build();
         }
-    }
+    }*/
 }

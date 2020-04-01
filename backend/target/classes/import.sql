@@ -12,5 +12,5 @@ insert into course(name,average_rating) values('anal2',10);
 
 insert into professor(name, average_rating, recommendation_count,department_id) values('Krisa',1,0,1);
 insert into professor(name, average_rating, recommendation_count,department_id) values('Asdf',8,10,1);
-insert into professor(name, average_rating, recommendation_count,department_id) values('Shrek',10,100,1);
-insert into professor(name, average_rating, recommendation_count,department_id) values('AntiKrisa',10,1000,1);
+insert into professor(name, average_rating, recommendation_count,department_id) values('Shrek',10,100,2);
+insert into professor(name, average_rating, recommendation_count,department_id) values('AntiKrisa',10,1000,2);

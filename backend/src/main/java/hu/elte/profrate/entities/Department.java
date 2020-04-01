@@ -1,5 +1,6 @@
 package hu.elte.profrate.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,6 +32,7 @@ public class Department {
     @NotNull
     private Boolean doesContainKrisa;
 
-    @OneToMany(mappedBy = "department",  orphanRemoval = true)
-    private List<Professor> professors;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "department",  orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<Professor> professors; 
 }

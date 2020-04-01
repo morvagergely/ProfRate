@@ -33,23 +33,23 @@ public class Professor {
     @NotNull
     private String name;
     
-    /*@Column
-    @NotNull
-    private List<Float> ratings;*/
+    @Column
+    private Integer score;
     
     @Column
-    @NotNull
+    private Integer rateCount;
+    
+    @Column
     private Float averageRating;
     
     @Column
-    @NotNull
     private Integer recommendationCount;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Course> courses;
     
     @JsonBackReference
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Department department;
 
     /*public Course getCourseById(Integer courseId) {
@@ -61,12 +61,4 @@ public class Professor {
         return null;
     }*/
     
-    /*public Exam getRoomById(Integer examId) {
-        for(Exam exam : exams) {
-            if(exam.getId().equals(examId)) {
-                return exam;
-            }
-        }
-        return null;
-    }*/
 }

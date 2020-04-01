@@ -30,9 +30,6 @@ public class ProfessorController {
 
     @Autowired
     private ProfessorRepository professorRepository;
-/*
-    @Autowired
-    private AuthenticatedUser authenticatedUser;*/
 
     @GetMapping("")
     public ResponseEntity<Iterable<Professor>> getAll() {
@@ -50,17 +47,17 @@ public class ProfessorController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Professor> post(@RequestBody Professor room) {
-        Professor savedCourse = professorRepository.save(room);
+    public ResponseEntity<Professor> post(@RequestBody Professor professor) {
+        Professor savedCourse = professorRepository.save(professor);
         return ResponseEntity.ok(savedCourse);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Professor> put(@RequestBody Professor room, @PathVariable Integer id) {
-        Optional<Professor> oCourse = professorRepository.findById(id);
-        if (oCourse.isPresent()) {
-            room.setId(id);
-            return ResponseEntity.ok(professorRepository.save(room));
+    public ResponseEntity<Professor> put(@RequestBody Professor professor, @PathVariable Integer id) {
+        Optional<Professor> oProfessor = professorRepository.findById(id);
+        if (oProfessor.isPresent()) {
+            professor.setId(id);
+            return ResponseEntity.ok(professorRepository.save(professor));
         } else {
             return ResponseEntity.notFound().build();
         }
@@ -68,24 +65,24 @@ public class ProfessorController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Integer id) {
-        Optional<Professor> oCourse = professorRepository.findById(id);
-        if (oCourse.isPresent()) {
-            professorRepository.deleteById(id);
-            return ResponseEntity.ok().build();
+        Optional<Professor> oProfessor = professorRepository.findById(id);
+        if (!oProfessor.isPresent()) {
+            ResponseEntity.notFound();
+        }
+        professorRepository.delete(oProfessor.get());
+        return ResponseEntity.ok().build();       
+    }
+     
+    
+    @GetMapping("/{id}/courses")
+    public ResponseEntity<Iterable<Course>> getCourses(@PathVariable Integer id) {
+        Optional<Professor> oProfessor = professorRepository.findById(id);
+        if (oProfessor.isPresent()) {
+            return ResponseEntity.ok(oProfessor.get().getCourses());
         } else {
             return ResponseEntity.notFound().build();
         }
     }
-    
-    /*@GetMapping("/{id}/courses")
-    public ResponseEntity<Iterable<Course>> getCourses(@PathVariable Integer id) {
-        Optional<Professor> oCurse = professorRepository.findById(id);
-        if (oCurse.isPresent()) {
-            return ResponseEntity.ok(oCurse.get().getCourses());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }*/
     
 }
 

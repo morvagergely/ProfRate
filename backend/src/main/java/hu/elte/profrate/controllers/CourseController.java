@@ -68,7 +68,7 @@ public class CourseController {
        if (course.getAverageRating() != null) {
             courseToUpdate.setAverageRating(course.getAverageRating());
         }
-        if (course.getProfessors() != null) {
+       if (course.getProfessors() != null) {
             courseToUpdate.setProfessors(course.getProfessors());
         }
 
