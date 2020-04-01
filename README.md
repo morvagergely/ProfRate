@@ -92,13 +92,16 @@ Az <b>adminisztrátor</b> (<b>admin</b>) tud törölni bármilyen kommentet, okt
   </li>
   <li>User
     <ul>
-      <li>id (Long)</li>
+      <li>id (Integer)</li>
       <li>neptunCode (String)</li>
       <li>password (String)</li>
       <li>type (Enum)</li>
     </ul>
   </li>
 </ul>
+
+<H3>UML Diagram</H3>
+<img src="uml.png" alt="UML">
 
 <H3>Könyvtárstruktúra</H3>
 <H4>Backend</H4>
