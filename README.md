@@ -189,4 +189,7 @@ Az <b>adminisztrátor</b> (<b>admin</b>) tud törölni bármilyen kommentet, okt
   </li>
 </ul>
 
+<H3>Szekvencia diagram</H3>
+<img src="sequence.png" alt="sequence">
+
 
