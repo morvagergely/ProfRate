@@ -1,0 +1,12 @@
+<div class="courses" *ngFor="let course of courses">
+  <mat-card class="example-card">
+    <mat-card-content>
+      <p>
+        Course name: {{course.name}} <br> Course Rating: {{course.averageRating}}
+      </p>
+      <div class="button">
+        <button mat-flat-button color="accent" (click)="goto('rate-course', course.id)">rate</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

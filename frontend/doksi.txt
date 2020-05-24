@@ -1,0 +1,105 @@
+komponensek:
+about:
+statikus komponens, itt tárolom az alapinformációkat, amiket a userneknek kiírok, pl ki fejleszti, mik a future tervek és mi a motiváció
+
+contact:
+szintén statikus, az elérhetőségeket displayeli
+
+change-password:
+Egy form található itt, aminél a mezők nem lehetnek üresek, ezek a .ts fileban vannak validálva
+submit gomb megnyomására ellenőrzi, hogy a password és confirm password megegyezik-e, majd a userService-nek küld changePassword kérést a régi és az új jelszóval
+ha a response true, akkor a main komponensre navigál, és 5 mp-s snackbar-t feldob a felhasználónak, amiben értesíti a sikeres jelszóváltoztatásról
+ha a response false, akkor egy error message-et display-el, hogy a régi jelszó nem volt megfelelő
+
+cheap:
+this.filter(text: string): 150ms timerrel várja az inputot (azért van a késleltetés, hogy ne minden karakterleütésnél keressen, ha egy kifejezést ír be a felhasználó), majd meghívja a a gamesservice getGamesLength metódusát, ami visszaadja, hogy hány játék tartozik ebbe a filterelt listába. eltárolja a szöveget, a játékok számát és a currentpage-et 0-ra állítja, majd meghívja a this.updateGames()-et
+this.updateGames(): a metódus beállítja az osztály start nevű változóját, ami indikálja, hogy hanyadik játéktól displayelje a következő 20at, majd meghívja a gameservice getgamescheap metódusát, text, start és oldalméret attribútumokkal (oldalméret mindig 20), majd az ebből visszatérő 20 játékot beállítja az osztályváltozó games listának.
+this.handlePage(): a paginator gombjának nyomása váltja ki ezt az evenetet, itt beállítjuk a currentpage változót, majd meghívjuk az updateGames()-et
+this.onCheckboxChange(): a trackelést állítja be, a userservice setGameTracked metódusának meghívásával.
+ngoninit: meghívja a filtert üres stringre, hogy alapból legyen a felhasználónak 1 game lista a képernyőjén
+template: itt végigmegyünk a class games változóján, és kiírjuk a címét, majd a legolcsóbb árat a hozzátartozó régióval, valamit a játékokhoz tartozó árakat helyek szerint.
+	Itt van kezelve az is, hogy a felhasználó be van-e jelentkezve, ha nincs, akkor nem jelennek meg checkboxok, és az onCheckboxChange() event nem váltódhat ki. Ha be van jelentkezve, akkor lekérdezi a userservice segítségével a felhasználó trackelt játékait, és az alapján van, vagy nincs kipipálva a checkbox
+	A bejelentkezés csekkolását az authservice isloggedin függvényével végezzük
+
+explore: majdnem ugyanaz, mint a cheap, csak nincs keresés meg pagination
+this.filter(text: string): 150ms timerrel várja az inputot (azért van a késleltetés, hogy ne minden karakterleütésnél keressen, ha egy kifejezést ír be a felhasználó), majd meghívja a a gamesservice getGamesLength metódusát, ami visszaadja, hogy hány játék tartozik ebbe a filterelt listába. eltárolja a szöveget, a játékok számát és a currentpage-et 0-ra állítja, majd meghívja a this.updateGames()-et
+this.updateGames(): a metódus beállítja az osztály start nevű változóját, ami indikálja, hogy hanyadik játéktól displayelje a következő 20at, majd meghívja a gameservice getgamescheap metódusát, text, start és oldalméret attribútumokkal (oldalméret mindig 20), majd az ebből visszatérő 20 játékot beállítja az osztályváltozó games listának.
+this.handlePage(): a paginator gombjának nyomása váltja ki ezt az evenetet, itt beállítjuk a currentpage változót, majd meghívjuk az updateGames()-et
+this.onCheckboxChange(): a trackelést állítja be, a userservice setGameTracked metódusának meghívásával.
+ngoninit: meghívja a filtert üres stringre, hogy alapból legyen a felhasználónak 1 game lista a képernyőjén
+template: itt végigmegyünk a class games változóján, és kiírjuk a címét, majd a legolcsóbb árat a hozzátartozó régióval, valamit a játékokhoz tartozó árakat helyek szerint.
+	Itt van kezelve az is, hogy a felhasználó be van-e jelentkezve, ha nincs, akkor nem jelennek meg checkboxok, és az onCheckboxChange() event nem váltódhat ki. Ha be van jelentkezve, akkor lekérdezi a userservice segítségével a felhasználó trackelt játékait, és az alapján van, vagy nincs kipipálva a checkbox
+	A bejelentkezés csekkolását az authservice isloggedin függvényével végezzük
+
+login-form:
+Ez is 1 form, a form validálása után meghívjuk az authservice login függvényét a felhasználónévvel és a jelszóval, majd ha nem errort kapunk vissza, akkor a bejelentkezés sikeres volt, és elnavigáljuk a felhasználót a main komponensre
+Ha error van, és az error kód 401, akkor autentikációs hiba lépett fel, ha más, akkor szerver oldali hiba, aminek a számát ki is írjuk.
+template: az email és jelszó fieldek típusa is email és jelszó, azaz az emailnek meg kell feleljen a szabvány formának, a jelszót pedig nem mutatjuk. ezen az oldalon van 1 register gomb is, ami a register-formra navigálja a felhasználót, hogy regisztrálhasson, ha még nem tette, továbbá forgot password gomb is van, ami a jelszóújraküldésre alkalmas és a request-password-reset komponensre navigál
+
+main:
+same shit, mint a cheap, csak getgamesbytitle függvényt hív a getgamescheap helyett
+
+register-form:
+same shit, mint a login-form, azzal a különbséggel, hogy innen a loginra lehet navigálni, és ha az inputok validálva vannak, akkor az authservice register metódusát hívjuk. hibakezelés ugyanaz, ha nincs hiba, akkor átnavigál a login page-re, és snackbaron közli, hogy kaptunk verification emailt
+
+request-password-reset:
+form, 1 emailt kér, és meghívja ezzel a userservice requestpasswordreset függvényét.
+
+reset-password:
+ez is 1 form, itt az új jelszót kell 2x megadni, ha nem egyeznek, this.error írja a hibát, ha egyeznek, akkor a userservice resetpassword metódusát hívja meg a kapott id-val, ami a :4200/reset-password/... végén található az url-ben. Ha minden rendben van, akkor snackbar: password successfully changed üzenet, és mainre navigál
+
+sale:
+same shit, mint main és cheap, csak getgamesonsale metódust hívja
+
+tracked:
+itt lehet fellelni a tracked gameket, keresés itt sincs, meg pagináció sem, de checkboxchanged event van
+
+verify-account:
+rögtön meghívja az id paraméterrel (url utolsó része) a userservice.verifyaccount függvényét, és a válasz alapján displayeli, hogy sikeres volt-e a verification
+
+app.component.ts
+ez a frontendnek a kerete. a handleLogin() ha be van jelentkezve a felhasználó, akkor az authservice logout metódusát hívja, különben a login page-re navigál.
+reloadTrackedGames: újratölti a user trackelt játékait
+ngoninit: ha be van jelentkezve a felhasználó, akkor reloadtrackedgames-et meghívja
+goto: navigál
+template: itt vannak az ABOUT, illetve CONTACT US gombok, valamit az oldalsó menüben található gombok is, amik navigálnak adott helyekre (rájuk van írva). a changepassword, illetve a trackedgames csak akkor jelenik meg, ha a felhasználó be van jelentkezve.
+a sign in sign out attól függően váltakozik, hogy be van-e jelentkezve a felhasználó, és a handlelogin metódust hívja meg
+
+
+
+services:
+
+auth:
+httpclientet használ a konstruktorban
+tárol a felhasználóhoz tartozó tokent, amivel ellenőrizhető, hogy be van-e jelentkezve
+ezt alapból a localstorage-ből veszi, ha már el van tárolva
+isloggedin: visszaadja, hogy a felhasználó be van-e jelentkezve (azaz van-e tokene)
+get token() visszaadja a tokent
+get headers() visszaadja a httpheadert, benne a tokennel
+api(): ez a függvény 2 paraméterrel rendelkezik, az egyik a path, amit meg fog hívni, a másik opcionális body. Ebben az esetben csak GET és POST metódusokat használunk.
+	a függvény meghívja a httprequest request metódusát, ha van body, akkor POST-ot hív, ha nincs, akkor GET-et, majd hozzáadja az adattagokat, beállítja, hogy /TODO az observe true legyen, valamit a /TODO withCredentials is.
+	a requestre adott válaszból csak a bodyt returnöli, valamint ha errort kap, visszaadja az error kódot
+register(): a this.api-t hívja meg, az auth/register path-en, {username, password} bodyval, majd ha nincs error, akkor undefined-al tér vissza, ha van, akkor az errorral.
+login(): a this.api-t hívja meg, az auth/login path-en, {username, password} bodyval, majd ha nincs error, akkor a responseból kiszedi a tokent, és beállítja az osztály adattagjának, szintúgy local storagera is menti, hogy később elérhető legyen.
+logout(): this.tokent undefinedra állítja, és a localstorageból removeolja a tokent.
+
+game:
+itt minden függvény az auth apiját használja, csak mások a path-ek.
+
+user:
+logout(): userservice logout függvényét hívja meg.
+gettrackedgames meghívja az auth..api-t a users/tracked path-en, és a this.tracked-et beállítja trackedre.
+setgametracekd: vár egy game-et, meg egy tracked boolean változót, ami azt indikálja, hogy jelenleg trackelve van-e a játék.
+	ezekkel meghívja az auth.api-t a users/track|untrack/game-et
+	/TODO ha tracked és a visszatérési érték true, akkor hozzáadjuk a játékot a this.tracked-hez, ha mind2 érték hamis, akkor kiszedjük belőle a splice metódussal
+további fv-ek api hivások
+
+Data Transfer Objects:
+GameDto:
+id, title, url, onsale, price meg típusok?
+RatesShort, same
+
+
+
+app.module.ts
+itt vannak deklarálva const appRoutes éven a route-ok, hogy melyik path melyik komponenshez vezessen, valamit az importok is itt vannak kezelve.

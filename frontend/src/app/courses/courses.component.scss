@@ -1,0 +1,48 @@
+app-main {
+  position: relative;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.main-prices {
+  display: flex;
+  flex-direction: row;
+
+  div {
+    border-radius: 1em;
+    background: #333;
+    margin-right: 8px;
+    padding: 4px 8px;
+  }
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+a {
+  color: white;
+}
+
+.courses {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+
+.mat-button {
+  margin: 16px
+}
