@@ -141,6 +141,86 @@ Az <b>adminisztrátor</b> (<b>admin</b>) tud törölni bármilyen kommentet, okt
   <li>ProfRate.java</li>
 </ul>
 
+<H4>Frontend</H4>
+<ul>
+  <li>app
+    <ul>
+      <li>courses
+        <ul>
+          <li>courses.component.html</li>
+          <li>courses.component.scss</li>
+          <li>courses.component.spec.ts</li>
+          <li>courses.component.ts</li>
+        </ul>
+      </li>
+      <li>login-form
+        <ul>
+          <li>login-form.component.html</li>
+          <li>login-form.component.scss</li>
+          <li>login-form.component.spec.ts</li>
+          <li>login-form.component.ts</li>
+        </ul>
+      </li>
+      <li>professors
+        <ul>
+          <li>professors.component.html</li>
+          <li>professors.component.scss</li>
+          <li>professors.component.spec.ts</li>
+          <li>professors.component.ts</li>
+        </ul>
+      </li>
+      <li>rate-course
+        <ul>
+          <li>rate-course.component.html</li>
+          <li>rate-course.component.scss</li>
+          <li>rate-course.component.spec.ts</li>
+          <li>rate-course.component.ts</li>
+        </ul>
+      </li>
+      <li>register-form
+        <ul>
+          <li>register-form.component.html</li>
+          <li>register-form.component.scss</li>
+          <li>register-form.component.spec.ts</li>
+          <li>register-form.component.ts</li>
+        </ul>
+      </li>    
+      <li>app-routing.module.ts</li>
+      <li>app.component.html</li>
+      <li>app.component.scss</li>
+      <li>app.component.spec.ts</li>
+      <li>app.component.ts</li>
+      <li>app.module.ts</li>
+      <li>auth.service.spec.ts</li>
+      <li>auth.service.ts</li>
+      <li>course.dto.ts</li>
+      <li>course.service.ts</li>
+      <li>department.dto.ts</li>
+      <li>departments.service.ts</li>
+      <li>professor.dto.ts</li>
+      <li>professors.service.ts</li>
+    </ul>
+  </li>
+  <li>assets
+    <ul>
+      <li>.gitkeep</li>
+    </ul>
+  </li>
+  <li>environments
+    <ul>
+      <li>environment.prod.ts</li>
+      <li>environment.ts</li>
+    </ul>
+  </li>
+  <li>favicon.ico</li>
+  <li>getgames.js</li>
+  <li>index.html</li>
+  <li>main.ts</li>
+  <li>polyfills.ts</li>
+  <li>styles.scss</li>
+  <li>test.ts</li>
+</ul>
+
 <H3>Végpontok</H3>
 <ul>
   <li>GET/
