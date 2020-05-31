@@ -275,4 +275,7 @@ Az <b>adminisztrátor</b> (<b>admin</b>) tud törölni bármilyen kommentet, okt
 <H3>Használati esetek diagram</H3>
 <img src="usecase.png" alt="usecase">
 
+<H3>Tárgy értékelés folyamatának leírása</H3>
+<img src="rate.png" alt=rate">
+
 
