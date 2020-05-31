@@ -277,5 +277,26 @@ Az <b>adminisztrátor</b> (<b>admin</b>) tud törölni bármilyen kommentet, okt
 
 <H3>Tárgy értékelés folyamatának leírása</H3>
 <img src="rate.png" alt=rate">
+                             
+<H2>Felhasználói dokumentáció</H2>
+<H3>Telepítés</H3>
+<H4>Szükséges:</H4>
+    <ul>
+      <li>Node.js és npm (<a href="https://www.npmjs.com/get-npm/">npmjs.com/get-npm</a>)</li>
+      <li>Internet</li>
+    </ul>
+<H4>Telepítés:</H4>
+    <ol>
+      <li>A github oldalon töltse le zip fájlként a programot</li>
+      <li>Csomagolja ki a fájlokat</li>
+      <li>A parancssorban lépjen be a kicsomagolt állomány mappájába, majd írja be az "npm i" parancsot</li>
+      <li>A programot az "npm start" paranccsal tudja elinditani</li>
+    </ol>
+<H3>Használata</H3>
+<ol>
+  <li>Böngészőbe írja be a következőt: localhost:8080</li>
+  <li>Miután regisztrált és bejelentkezett, használhatja a programot</li>
+</ol>
+
 
 
